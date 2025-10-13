@@ -56,16 +56,16 @@ const ProductsDetailed = () => {
         </div>
 
         {/* Export Benefits Banner */}
-        <div className="grid md:grid-cols-4 gap-4 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-12 md:mb-16">
           {exportBenefits.map((benefit, index) => (
             <Card
               key={index}
               className="text-center hover:shadow-lg transition-smooth animate-scale-in bg-gradient-card"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <CardContent className="p-6">
-                <benefit.icon className="h-10 w-10 mx-auto mb-3 text-secondary" />
-                <p className="text-sm font-medium text-foreground">{benefit.text}</p>
+              <CardContent className="p-4 md:p-6">
+                <benefit.icon className="h-8 w-8 md:h-10 md:w-10 mx-auto mb-2 md:mb-3 text-secondary" />
+                <p className="text-xs md:text-sm font-medium text-foreground">{benefit.text}</p>
               </CardContent>
             </Card>
           ))}
@@ -73,34 +73,30 @@ const ProductsDetailed = () => {
 
         {/* Detailed Product Sections */}
         <Tabs defaultValue="machinery" className="w-full">
-          <TabsList className="grid w-full grid-cols-4 mb-12 h-auto">
-            <TabsTrigger value="machinery" className="py-3">
-              <Settings className="h-5 w-5 mr-2" />
-              <span className="hidden sm:inline">Fishnet Machinery</span>
-              <span className="sm:hidden">Machinery</span>
+          <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 gap-2 mb-8 md:mb-12 h-auto bg-muted p-2">
+            <TabsTrigger value="machinery" className="py-2 md:py-3 text-xs md:text-sm flex-col md:flex-row gap-1 md:gap-2">
+              <Settings className="h-4 w-4 md:h-5 md:w-5" />
+              <span>Machinery</span>
             </TabsTrigger>
-            <TabsTrigger value="spare-parts" className="py-3">
-              <Package className="h-5 w-5 mr-2" />
-              <span className="hidden sm:inline">Spare Parts</span>
-              <span className="sm:hidden">Parts</span>
+            <TabsTrigger value="spare-parts" className="py-2 md:py-3 text-xs md:text-sm flex-col md:flex-row gap-1 md:gap-2">
+              <Package className="h-4 w-4 md:h-5 md:w-5" />
+              <span>Spare Parts</span>
             </TabsTrigger>
-            <TabsTrigger value="fishnets" className="py-3">
-              <Network className="h-5 w-5 mr-2" />
-              <span className="hidden sm:inline">Ready Fishnets</span>
-              <span className="sm:hidden">Fishnets</span>
+            <TabsTrigger value="fishnets" className="py-2 md:py-3 text-xs md:text-sm flex-col md:flex-row gap-1 md:gap-2">
+              <Network className="h-4 w-4 md:h-5 md:w-5" />
+              <span>Fishnets</span>
             </TabsTrigger>
-            <TabsTrigger value="custom" className="py-3">
-              <Wrench className="h-5 w-5 mr-2" />
-              <span className="hidden sm:inline">Custom Solutions</span>
-              <span className="sm:hidden">Custom</span>
+            <TabsTrigger value="custom" className="py-2 md:py-3 text-xs md:text-sm flex-col md:flex-row gap-1 md:gap-2">
+              <Wrench className="h-4 w-4 md:h-5 md:w-5" />
+              <span>Custom</span>
             </TabsTrigger>
           </TabsList>
 
           {/* Machinery Tab */}
           <TabsContent value="machinery" className="animate-fade-in">
-            <div className="grid lg:grid-cols-2 gap-8">
+            <div className="grid lg:grid-cols-2 gap-6 md:gap-8">
               <div className="order-2 lg:order-1">
-                <h3 className="text-3xl font-heading font-bold mb-4 text-primary">
+                <h3 className="text-2xl md:text-3xl font-heading font-bold mb-3 md:mb-4 text-primary">
                   Advanced Fishnet Manufacturing Machinery
                 </h3>
                 <p className="text-lg text-foreground/80 mb-6">
@@ -163,7 +159,8 @@ const ProductsDetailed = () => {
                 <img
                   src={machineryImage}
                   alt="Fishnet Machinery"
-                  className="w-full h-full object-cover rounded-lg shadow-lg"
+                  className="w-full h-64 md:h-96 lg:h-full object-cover rounded-lg shadow-lg"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -171,17 +168,18 @@ const ProductsDetailed = () => {
 
           {/* Spare Parts Tab */}
           <TabsContent value="spare-parts" className="animate-fade-in">
-            <div className="grid lg:grid-cols-2 gap-8">
+            <div className="grid lg:grid-cols-2 gap-6 md:gap-8">
               <div>
                 <img
                   src={sparePartsImage}
                   alt="Spare Parts"
-                  className="w-full h-full object-cover rounded-lg shadow-lg"
+                  className="w-full h-64 md:h-96 lg:h-full object-cover rounded-lg shadow-lg"
+                  loading="lazy"
                 />
               </div>
 
               <div>
-                <h3 className="text-3xl font-heading font-bold mb-4 text-primary">
+                <h3 className="text-2xl md:text-3xl font-heading font-bold mb-3 md:mb-4 text-primary">
                   Genuine Spare Parts & Components
                 </h3>
                 <p className="text-lg text-foreground/80 mb-6">
@@ -245,9 +243,9 @@ const ProductsDetailed = () => {
 
           {/* Fishnets Tab */}
           <TabsContent value="fishnets" className="animate-fade-in">
-            <div className="grid lg:grid-cols-2 gap-8">
+            <div className="grid lg:grid-cols-2 gap-6 md:gap-8">
               <div className="order-2 lg:order-1">
-                <h3 className="text-3xl font-heading font-bold mb-4 text-primary">
+                <h3 className="text-2xl md:text-3xl font-heading font-bold mb-3 md:mb-4 text-primary">
                   Premium Quality Ready Fishnets
                 </h3>
                 <p className="text-lg text-foreground/80 mb-6">
@@ -314,7 +312,8 @@ const ProductsDetailed = () => {
                 <img
                   src={fishnetsImage}
                   alt="Fishnets"
-                  className="w-full h-full object-cover rounded-lg shadow-lg"
+                  className="w-full h-64 md:h-96 lg:h-full object-cover rounded-lg shadow-lg"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -322,17 +321,18 @@ const ProductsDetailed = () => {
 
           {/* Custom Solutions Tab */}
           <TabsContent value="custom" className="animate-fade-in">
-            <div className="grid lg:grid-cols-2 gap-8">
+            <div className="grid lg:grid-cols-2 gap-6 md:gap-8">
               <div>
                 <img
                   src={customImage}
                   alt="Custom Solutions"
-                  className="w-full h-full object-cover rounded-lg shadow-lg"
+                  className="w-full h-64 md:h-96 lg:h-full object-cover rounded-lg shadow-lg"
+                  loading="lazy"
                 />
               </div>
 
               <div>
-                <h3 className="text-3xl font-heading font-bold mb-4 text-primary">
+                <h3 className="text-2xl md:text-3xl font-heading font-bold mb-3 md:mb-4 text-primary">
                   Custom-Built Fishnet Machinery Solutions
                 </h3>
                 <p className="text-lg text-foreground/80 mb-6">

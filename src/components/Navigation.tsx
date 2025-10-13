@@ -91,8 +91,8 @@ const Navigation = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-border animate-fade-in">
-            <div className="flex flex-col space-y-4">
+          <div className="lg:hidden py-4 border-t border-border animate-fade-in bg-background/98 backdrop-blur-md">
+            <div className="flex flex-col space-y-3">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
@@ -101,7 +101,7 @@ const Navigation = () => {
                     e.preventDefault();
                     scrollToSection(link.href);
                   }}
-                  className="text-foreground hover:text-primary transition-smooth py-2"
+                  className="text-foreground hover:text-primary transition-smooth py-3 px-2 rounded-md hover:bg-muted font-medium"
                 >
                   {link.name}
                 </a>
@@ -109,7 +109,8 @@ const Navigation = () => {
               <Button
                 onClick={() => scrollToSection("#contact")}
                 variant="default"
-                className="bg-accent hover:bg-accent/90 w-full"
+                size="lg"
+                className="bg-accent hover:bg-accent/90 w-full mt-2"
               >
                 Get Quote
               </Button>
