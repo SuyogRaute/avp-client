@@ -1,6 +1,6 @@
 import { ArrowRight, Globe, Wrench, Package } from "lucide-react";
 import { Button } from "./ui/button";
-import heroImage from "@/assets/hero-bg.jpg";
+import heroImage from "@/assets/hero-bg-enhanced.jpg";
 
 const Hero = () => {
   const scrollToSection = (href: string) => {
