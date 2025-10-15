@@ -44,7 +44,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      details: ["info@avpengineers.com", "export@avpengineers.com"],
+      details: ["info@apengineers.com", "export@apengineers.com"],
     },
   ];
 

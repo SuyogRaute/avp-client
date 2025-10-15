@@ -49,7 +49,7 @@ const Navigation = () => {
             }}
             className="text-2xl font-heading font-bold text-primary"
           >
-            AVP <span className="text-secondary">Engineers</span>
+            A.P.<span className="text-secondary">Engineers</span>
           </a>
 
           {/* Desktop Navigation */}

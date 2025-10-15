@@ -2,10 +2,10 @@ import { Settings, Package, Network, Wrench, CheckCircle, Globe, TrendingUp, Shi
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { Button } from "./ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
-import machineryImage from "@/assets/machinery.jpg";
-import fishnetsImage from "@/assets/fishnets.jpg";
-import sparePartsImage from "@/assets/spare-parts.jpg";
-import customImage from "@/assets/custom-solutions.jpg";
+import machineryImage from "@/assets/portable-ds-machine.jpg";
+import fishnetsImage from "@/assets/fishnet-production.jpg";
+import sparePartsImage from "@/assets/ape-parts.jpg";
+import customImage from "@/assets/industrial-machine.jpg";
 
 const ProductsDetailed = () => {
   const scrollToContact = () => {
@@ -434,7 +434,7 @@ const ProductsDetailed = () => {
         <Card className="mt-16 bg-gradient-hero text-white animate-fade-in">
           <CardContent className="p-12 text-center">
             <h3 className="text-3xl font-heading font-bold mb-4">
-              Ready to Export with AVP Engineers?
+              Ready to Export with A.P.Engineers?
             </h3>
             <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
               Join hundreds of satisfied international clients. Get competitive pricing, reliable quality, and expert export support.

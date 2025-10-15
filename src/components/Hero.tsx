@@ -16,7 +16,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         <img
           src={heroImage}
-          alt="AVP Engineers Manufacturing Facility"
+          alt="A.P.Engineers Manufacturing Facility"
           className="w-full h-full object-cover"
           loading="eager"
         />
