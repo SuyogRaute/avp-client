@@ -21,7 +21,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <h3 className="text-2xl font-heading font-bold mb-4">
-              A.P.<span className="text-secondary-light">Engineers</span>
+              AVP <span className="text-secondary-light">Engineers</span>
             </h3>
             <p className="text-white/80 mb-4">
               Leading manufacturer and global exporter of fishnet machinery, spare parts, and custom-built solutions.
@@ -33,7 +33,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="h-4 w-4 text-secondary-light" />
-                <span className="text-sm">info@apengineers.com</span>
+                <span className="text-sm">info@avpengineers.com</span>
               </div>
             </div>
           </div>
@@ -63,7 +63,7 @@ const Footer = () => {
         {/* Social Media & Copyright */}
         <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-white/70 text-sm mb-4 md:mb-0">
-            © {currentYear} A.P.Engineers. All rights reserved.
+            © {currentYear} AVP Engineers. All rights reserved.
           </p>
           <div className="flex space-x-4">
             <a
