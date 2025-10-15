@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
+import { Link, useLocation } from "react-router-dom";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,22 +17,13 @@ const Navigation = () => {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Machinery", href: "#machinery" },
-    { name: "Spare Parts", href: "#spare-parts" },
-    { name: "Fishnets", href: "#fishnets" },
-    { name: "Custom Solutions", href: "#custom" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Products", href: "/products" },
+    { name: "Spare Parts", href: "/spare-parts" },
+    { name: "Contact", href: "/contact" },
   ];
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setIsMobileMenuOpen(false);
-    }
-  };
 
   return (
     <nav
@@ -41,34 +34,30 @@ const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a
-            href="#home"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection("#home");
-            }}
+          <Link
+            to="/"
             className="text-2xl font-heading font-bold text-primary"
           >
             A.P.<span className="text-secondary">Engineers</span>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection(link.href);
-                }}
-                className="text-sm font-medium text-foreground hover:text-primary transition-smooth"
+                to={link.href}
+                className={`text-sm font-medium transition-smooth ${
+                  location.pathname === link.href
+                    ? "text-primary font-semibold"
+                    : "text-foreground hover:text-primary"
+                }`}
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
             <Button
-              onClick={() => scrollToSection("#contact")}
+              onClick={() => window.location.href = "/contact"}
               variant="default"
               className="bg-accent hover:bg-accent/90"
             >
@@ -94,20 +83,24 @@ const Navigation = () => {
           <div className="lg:hidden py-4 border-t border-border animate-fade-in bg-background/98 backdrop-blur-md">
             <div className="flex flex-col space-y-3">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection(link.href);
-                  }}
-                  className="text-foreground hover:text-primary transition-smooth py-3 px-2 rounded-md hover:bg-muted font-medium"
+                  to={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`transition-smooth py-3 px-2 rounded-md hover:bg-muted font-medium ${
+                    location.pathname === link.href
+                      ? "text-primary bg-muted"
+                      : "text-foreground hover:text-primary"
+                  }`}
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
               <Button
-                onClick={() => scrollToSection("#contact")}
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  window.location.href = "/contact";
+                }}
                 variant="default"
                 size="lg"
                 className="bg-accent hover:bg-accent/90 w-full mt-2"
