@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
-import { Button } from "./ui/button";
-import { Link } from "react-router-dom";
+import { Menu, X, ChevronRight } from "lucide-react";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,10 +13,6 @@ const Navigation = () => {
 
   const navLinks = [
     { name: "About", href: "#about" },
-    // { name: "Machinery", href: "#product" },
-    // { name: "Spare Parts", href: "#product" },
-    // { name: "Fishnets", href: "#product" },
-    // { name: "Custom Solutions", href: "#custom" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -31,119 +25,168 @@ const Navigation = () => {
   };
 
   return (
-   <nav
-  className="fixed top-0 left-0 right-0 z-50 bg-white backdrop-blur-lg shadow-lg border-b border-gray-200/50 transition-all duration-300"
->
-  <div className="container mx-auto px-4">
-    <div className="flex items-center justify-between h-20">
-      {/* ✅ Logo → Redirects to home */}
-      <Link
-        to="/"
-        className="text-3xl font-heading font-bold text-blue-950"
-      >
-        AVP <span className="text-secondary">Engineers</span>
-      </Link>
-
-      {/* ✅ Desktop Navigation */}
-      <div className="hidden lg:flex items-center space-x-8">
-        <Link
-          to="/"
-          className="text-foreground hover:text-primary transition-smooth py-3 px-2 rounded-md hover:bg-muted font-medium"
-        >
-          Home
-        </Link>
-
-        <Link
-          to="/Product"
-          className="text-foreground hover:text-primary transition-smooth py-3 px-2 rounded-md hover:bg-muted font-medium "
-        >
-          Product catalog
-        </Link>
-
-        {navLinks.map((link) => (
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled
+          ? "bg-white/95 backdrop-blur-xl shadow-xl border-b border-gray-200/50"
+          : "bg-gradient-to-b from-black/20 to-transparent backdrop-blur-sm"
+      }`}
+    >
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo */}
           <a
-            key={link.name}
-            href={link.href}
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection(link.href);
-            }}
-            className="text-base font-medium text-foreground hover:text-primary transition-smooth"
+            href="/"
+            className={`text-2xl sm:text-3xl font-heading font-bold transition-all duration-300 ${
+              isScrolled ? "text-primary" : "text-white"
+            }`}
           >
-            {link.name}
-          </a>
-        ))}
-
-        <Button
-          onClick={() => scrollToSection("#contact")}
-          variant="default"
-          className="bg-accent hover:bg-accent/90"
-        >
-          Get Quote
-        </Button>
-      </div>
-
-      {/* ✅ Mobile Menu Button */}
-      <button
-        className="lg:hidden p-2"
-        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-      >
-        {isMobileMenuOpen ? (
-          <X className="h-6 w-6 text-foreground" />
-        ) : (
-          <Menu className="h-6 w-6 text-foreground" />
-        )}
-      </button>
-    </div>
-
-    {/* ✅ Mobile Menu */}
-    {isMobileMenuOpen && (
-      <div className="lg:hidden py-4 border-t border-border animate-fade-in bg-white/95 backdrop-blur-md">
-        <div className="flex flex-col space-y-3">
-          <Link
-            to="/"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="text-foreground hover:text-primary transition-smooth py-3 px-2 rounded-md hover:bg-muted font-medium"
-          >
-            Home
-          </Link>
-
-          <Link
-            to="/Product"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="text-foreground hover:text-primary transition-smooth py-3 px-2 rounded-md hover:bg-muted font-medium"
-          >
-            Product
-          </Link>
-
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection(link.href);
-              }}
-              className="text-foreground hover:text-primary transition-smooth py-3 px-2 rounded-md hover:bg-muted font-medium"
+            AVP{" "}
+            <span
+              className={`transition-all duration-300 ${
+                isScrolled ? "text-secondary" : "text-secondary-light"
+              }`}
             >
-              {link.name}
+              Engineers
+            </span>
+          </a>
+
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center space-x-1">
+            <a
+              href="/"
+              className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-300 group ${
+                isScrolled
+                  ? "text-foreground hover:text-primary"
+                  : "text-white hover:text-secondary-light"
+              }`}
+            >
+              Home
+              <span
+                className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
+                  isScrolled ? "bg-primary" : "bg-secondary-light"
+                }`}
+              />
             </a>
-          ))}
 
-          <Button
-            onClick={() => scrollToSection("#contact")}
-            variant="default"
-            size="lg"
-            className="bg-accent hover:bg-accent/90 w-full mt-2"
+            <a
+              href="/Product"
+              className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-300 group ${
+                isScrolled
+                  ? "text-foreground hover:text-primary"
+                  : "text-white hover:text-secondary-light"
+              }`}
+            >
+              Product Catalog
+              <span
+                className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
+                  isScrolled ? "bg-primary" : "bg-secondary-light"
+                }`}
+              />
+            </a>
+
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(link.href);
+                }}
+                className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-300 group ${
+                  isScrolled
+                    ? "text-foreground hover:text-primary"
+                    : "text-white hover:text-secondary-light"
+                }`}
+              >
+                {link.name}
+                <span
+                  className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
+                    isScrolled ? "bg-primary" : "bg-secondary-light"
+                  }`}
+                />
+              </a>
+            ))}
+
+            <button
+              onClick={() => scrollToSection("#contact")}
+              className={`ml-4 px-6 py-2.5 rounded-lg font-semibold transition-all duration-300 flex items-center ${
+                isScrolled
+                  ? "bg-accent hover:bg-accent/90 text-white shadow-lg hover:shadow-xl hover:scale-105"
+                  : "bg-secondary-light hover:bg-secondary text-primary shadow-lg hover:shadow-2xl hover:scale-105"
+              }`}
+            >
+              Get Quote
+              <ChevronRight className="ml-1 h-4 w-4" />
+            </button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className={`lg:hidden p-2 rounded-lg transition-all duration-300 ${
+              isScrolled
+                ? "text-foreground hover:bg-gray-100"
+                : "text-white hover:bg-white/10"
+            }`}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            Get Quote
-          </Button>
+            {isMobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </button>
         </div>
-      </div>
-    )}
-  </div>
-</nav>
 
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden py-4 border-t border-white/10 animate-fade-in bg-white/95 backdrop-blur-xl rounded-b-2xl shadow-2xl">
+            <div className="flex flex-col space-y-2">
+              <a
+                href="/"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-foreground hover:text-primary hover:bg-primary/5 transition-all duration-300 py-3 px-4 rounded-lg font-medium flex items-center justify-between group"
+              >
+                Home
+                <ChevronRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </a>
+
+              <a
+                href="/Product"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-foreground hover:text-primary hover:bg-primary/5 transition-all duration-300 py-3 px-4 rounded-lg font-medium flex items-center justify-between group"
+              >
+                Product Catalog
+                <ChevronRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </a>
+
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(link.href);
+                  }}
+                  className="text-foreground hover:text-primary hover:bg-primary/5 transition-all duration-300 py-3 px-4 rounded-lg font-medium flex items-center justify-between group"
+                >
+                  {link.name}
+                  <ChevronRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
+              ))}
+
+              <button
+                onClick={() => scrollToSection("#contact")}
+                className="bg-accent hover:bg-accent/90 text-white w-full mt-2 font-semibold shadow-lg hover:shadow-xl transition-all duration-300 py-3 px-4 rounded-lg flex items-center justify-center"
+              >
+                Get Quote
+                <ChevronRight className="ml-1 h-4 w-4" />
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+    </nav>
   );
 };
 

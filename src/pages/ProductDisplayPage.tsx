@@ -469,7 +469,7 @@ const ProductDisplayPage = () => {
   return (
     <>
       <Navigation />
-      <div className="h-10 bg-gray-50 my-20" >
+      <div className="h-10 bg-gray-50 mb-20 " >
         {/* Hero Header */}
         <div className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 text-white py-12 md:py-16 overflow-hidden">
           <div className="absolute inset-0 opacity-10">
@@ -484,7 +484,7 @@ const ProductDisplayPage = () => {
 
           <div className="container mx-auto px-4 relative z-10">
             <div className="text-center">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 my-16">
                 Complete Product Catalog
               </h1>
               <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto mb-6">
