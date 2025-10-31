@@ -47,7 +47,8 @@ const Hero = () => {
                 size="lg"
                 variant="outline"
                 onClick={() => scrollToSection("#about")}
-                className="border-2 border-white text-white hover:bg-white hover:text-primary w-full sm:w-auto"
+                className="border-2 border-white text-primary
+                 hover:bg-blue-100 hover:text-black y w-full sm:w-auto"
               >
                 Learn More
               </Button>

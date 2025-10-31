@@ -39,12 +39,12 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Phone",
-      details: ["+91-XXXX-XXXXXX", "WhatsApp Available"],
+      details: ["+91-9926202282,+91-8830101938", "WhatsApp Available"],
     },
     {
       icon: Mail,
       title: "Email",
-      details: ["info@avpengineers.com", "export@avpengineers.com"],
+      details: ["apengineer83@gmail.com", ""],
     },
   ];
 
