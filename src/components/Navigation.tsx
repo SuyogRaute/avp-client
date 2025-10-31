@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -151,14 +152,14 @@ const Navigation = () => {
                 <ChevronRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
               </a>
 
-              <a
-                href="/Product"
+              <Link
+                to="/Product"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="text-foreground hover:text-primary hover:bg-primary/5 transition-all duration-300 py-3 px-4 rounded-lg font-medium flex items-center justify-between group"
               >
                 Product Catalog
                 <ChevronRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-              </a>
+              </Link>
 
               {navLinks.map((link) => (
                 <a
