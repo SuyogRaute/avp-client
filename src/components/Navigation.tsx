@@ -13,12 +13,12 @@ const Navigation = () => {
   }, []);
 
   const navLinks = [
-    { name: "About", href: "#about" },
-    { name: "Contact", href: "#contact" },
+    { name: "About", to: "#about" },
+    { name: "Contact", to: "#contact" },
   ];
 
-  const scrollToSection = (href) => {
-    const element = document.querySelector(href);
+  const scrollToSection = (to) => {
+    const element = document.querySelector(to);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
       setIsMobileMenuOpen(false);
@@ -36,8 +36,8 @@ const Navigation = () => {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a
-            href="/"
+          <Link
+            to="/"
             className={`text-2xl sm:text-3xl font-heading font-bold transition-all duration-300 ${
               isScrolled ? "text-primary" : "text-white"
             }`}
@@ -50,12 +50,12 @@ const Navigation = () => {
             >
               Engineers
             </span>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1">
-            <a
-              href="/"
+            <Link
+              to="/"
               className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-300 group ${
                 isScrolled
                   ? "text-foreground hover:text-primary"
@@ -68,10 +68,10 @@ const Navigation = () => {
                   isScrolled ? "bg-primary" : "bg-secondary-light"
                 }`}
               />
-            </a>
+            </Link>
 
-            <a
-              href="/Product"
+            <Link
+              to="/Product"
               className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-300 group ${
                 isScrolled
                   ? "text-foreground hover:text-primary"
@@ -84,15 +84,15 @@ const Navigation = () => {
                   isScrolled ? "bg-primary" : "bg-secondary-light"
                 }`}
               />
-            </a>
+            </Link>
 
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
+                to={link.to}
                 onClick={(e) => {
                   e.preventDefault();
-                  scrollToSection(link.href);
+                  scrollToSection(link.to);
                 }}
                 className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-300 group ${
                   isScrolled
@@ -106,7 +106,7 @@ const Navigation = () => {
                     isScrolled ? "bg-primary" : "bg-secondary-light"
                   }`}
                 />
-              </a>
+              </Link>
             ))}
 
             <button
@@ -143,14 +143,14 @@ const Navigation = () => {
         {isMobileMenuOpen && (
           <div className="lg:hidden py-4 border-t border-white/10 animate-fade-in bg-white/95 backdrop-blur-xl rounded-b-2xl shadow-2xl">
             <div className="flex flex-col space-y-2">
-              <a
-                href="/"
+              <Link
+                to="/"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="text-foreground hover:text-primary hover:bg-primary/5 transition-all duration-300 py-3 px-4 rounded-lg font-medium flex items-center justify-between group"
               >
                 Home
                 <ChevronRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-              </a>
+              </Link>
 
               <Link
                 to="/Product"
@@ -162,18 +162,18 @@ const Navigation = () => {
               </Link>
 
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
+                  to={link.to}
                   onClick={(e) => {
                     e.preventDefault();
-                    scrollToSection(link.href);
+                    scrollToSection(link.to);
                   }}
                   className="text-foreground hover:text-primary hover:bg-primary/5 transition-all duration-300 py-3 px-4 rounded-lg font-medium flex items-center justify-between group"
                 >
                   {link.name}
                   <ChevronRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                </a>
+                </Link>
               ))}
 
               <button
