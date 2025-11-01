@@ -776,10 +776,11 @@ const ProductDisplayPage = () => {
             <div className="bg-white rounded-2xl max-w-6xl w-full max-h-[95vh] overflow-y-auto relative my-4 shadow-2xl">
               <button
                 onClick={closeProductDetail}
-                className="sticky top-4 float-right mr-4 md:mr-6 bg-red-500 hover:bg-red-600 text-white p-2 md:p-2.5 rounded-full transition-all duration-300 z-10 shadow-lg"
+                className="absolute top-4  md:top-6 md:right-6 bg-red-500 hover:bg-red-600 text-white p- md:p-2.5 rounded-full shadow-lg z-50 transition-all duration-300"
               >
                 <X className="h-5 w-5 md:h-6 md:w-6" />
               </button>
+
 
               <div className="p-4 md:p-8">
                 {/* Image Carousel or Video */}
@@ -829,8 +830,8 @@ const ProductDisplayPage = () => {
                             key={idx}
                             onClick={() => setCurrentImageIndex(idx)}
                             className={`h-16 md:h-20 rounded-lg overflow-hidden border-2 transition-all duration-300 ${idx === currentImageIndex
-                                ? 'border-teal-500 scale-105 shadow-lg'
-                                : 'border-gray-200 opacity-60 hover:opacity-100 hover:scale-105'
+                              ? 'border-teal-500 scale-105 shadow-lg'
+                              : 'border-gray-200 opacity-60 hover:opacity-100 hover:scale-105'
                               }`}
                           >
                             <img src={img} alt={`Thumbnail ${idx + 1}`} className="w-full h-full object-cover" />
@@ -948,124 +949,124 @@ const ProductDisplayPage = () => {
           </div>
         )}
         {/* cta */}
-          <section className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <Card className="bg-white/95 backdrop-blur-sm shadow-2xl overflow-hidden">
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
-            {/* Left Content */}
-            <div className="p-8 lg:p-12">
-              <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 text-primary">
-                Ready to Order?
-              </h2>
-              <p className="text-lg text-muted-foreground mb-6">
-                Get competitive pricing, bulk discounts, and custom solutions tailored to your needs. Our team is ready to help you find the perfect products for your requirements.
-              </p>
-              
-              <div className="space-y-3 mb-8">
-                <div className="flex items-center space-x-3 text-sm">
-                  <div className="w-2 h-2 bg-accent rounded-full"></div>
-                  <span>Competitive wholesale pricing</span>
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <Card className="bg-white/95 backdrop-blur-sm shadow-2xl overflow-hidden">
+              <div className="grid lg:grid-cols-2 gap-8 items-center">
+                {/* Left Content */}
+                <div className="p-8 lg:p-12">
+                  <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 text-primary">
+                    Ready to Order?
+                  </h2>
+                  <p className="text-lg text-muted-foreground mb-6">
+                    Get competitive pricing, bulk discounts, and custom solutions tailored to your needs. Our team is ready to help you find the perfect products for your requirements.
+                  </p>
+
+                  <div className="space-y-3 mb-8">
+                    <div className="flex items-center space-x-3 text-sm">
+                      <div className="w-2 h-2 bg-accent rounded-full"></div>
+                      <span>Competitive wholesale pricing</span>
+                    </div>
+                    <div className="flex items-center space-x-3 text-sm">
+                      <div className="w-2 h-2 bg-accent rounded-full"></div>
+                      <span>Custom manufacturing available</span>
+                    </div>
+                    <div className="flex items-center space-x-3 text-sm">
+                      <div className="w-2 h-2 bg-accent rounded-full"></div>
+                      <span>International export support</span>
+                    </div>
+                    <div className="flex items-center space-x-3 text-sm">
+                      <div className="w-2 h-2 bg-accent rounded-full"></div>
+                      <span>Fast delivery & quality assurance</span>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Button
+                      size="lg"
+                      className="bg-accent hover:bg-accent/90 text-white group"
+                      onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                    >
+                      Request a Quote
+                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="border-2 border-primary text-primary hover:bg-primary hover:text-white"
+                      onClick={() => window.location.href = 'tel:+919926202282'}
+                    >
+                      <Phone className="mr-2 h-5 w-5" />
+                      Call Now
+                    </Button>
+                  </div>
                 </div>
-                <div className="flex items-center space-x-3 text-sm">
-                  <div className="w-2 h-2 bg-accent rounded-full"></div>
-                  <span>Custom manufacturing available</span>
-                </div>
-                <div className="flex items-center space-x-3 text-sm">
-                  <div className="w-2 h-2 bg-accent rounded-full"></div>
-                  <span>International export support</span>
-                </div>
-                <div className="flex items-center space-x-3 text-sm">
-                  <div className="w-2 h-2 bg-accent rounded-full"></div>
-                  <span>Fast delivery & quality assurance</span>
+
+                {/* Right Content - Quick Contact */}
+                <div className="bg-gradient-to-br from-secondary/10 to-primary/5 p-8 lg:p-12">
+                  <h3 className="text-2xl font-heading font-semibold mb-6 text-primary">
+                    Quick Contact
+                  </h3>
+
+                  <div className="space-y-4">
+                    <a
+                      href="tel:+919926202282"
+                      className="flex items-start space-x-4 p-4 bg-white rounded-lg hover:shadow-md transition-all group cursor-pointer"
+                    >
+                      <div className="bg-accent/10 p-3 rounded-lg group-hover:bg-accent/20 transition-colors">
+                        <Phone className="h-5 w-5 text-accent" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-sm text-muted-foreground mb-1">
+                          Call or WhatsApp
+                        </p>
+                        <p className="text-primary font-medium">+91-9926202282</p>
+                        <p className="text-primary font-medium">+91-8830101938</p>
+                      </div>
+                    </a>
+
+                    <a
+                      href="mailto:apengineer83@gmail.com"
+                      className="flex items-start space-x-4 p-4 bg-white rounded-lg hover:shadow-md transition-all group cursor-pointer"
+                    >
+                      <div className="bg-secondary/10 p-3 rounded-lg group-hover:bg-secondary/20 transition-colors">
+                        <Mail className="h-5 w-5 text-secondary" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-sm text-muted-foreground mb-1">
+                          Email Us
+                        </p>
+                        <p className="text-primary font-medium break-all">
+                          apengineer83@gmail.com
+                        </p>
+                      </div>
+                    </a>
+
+                    <div className="flex items-start space-x-4 p-4 bg-white rounded-lg">
+                      <div className="bg-primary/10 p-3 rounded-lg">
+                        <MessageCircle className="h-5 w-5 text-primary" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-sm text-muted-foreground mb-1">
+                          Response Time
+                        </p>
+                        <p className="text-primary font-medium">
+                          Within 24 hours
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 p-4 bg-accent/10 rounded-lg border border-accent/20">
+                    <p className="text-sm text-center font-medium text-accent">
+                      🌍 Export inquiries welcome - Worldwide shipping available
+                    </p>
+                  </div>
                 </div>
               </div>
-
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
-                  size="lg" 
-                  className="bg-accent hover:bg-accent/90 text-white group"
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  Request a Quote
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline"
-                  className="border-2 border-primary text-primary hover:bg-primary hover:text-white"
-                  onClick={() => window.location.href = 'tel:+919926202282'}
-                >
-                  <Phone className="mr-2 h-5 w-5" />
-                  Call Now
-                </Button>
-              </div>
-            </div>
-
-            {/* Right Content - Quick Contact */}
-            <div className="bg-gradient-to-br from-secondary/10 to-primary/5 p-8 lg:p-12">
-              <h3 className="text-2xl font-heading font-semibold mb-6 text-primary">
-                Quick Contact
-              </h3>
-              
-              <div className="space-y-4">
-                <a 
-                  href="tel:+919926202282"
-                  className="flex items-start space-x-4 p-4 bg-white rounded-lg hover:shadow-md transition-all group cursor-pointer"
-                >
-                  <div className="bg-accent/10 p-3 rounded-lg group-hover:bg-accent/20 transition-colors">
-                    <Phone className="h-5 w-5 text-accent" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-sm text-muted-foreground mb-1">
-                      Call or WhatsApp
-                    </p>
-                    <p className="text-primary font-medium">+91-9926202282</p>
-                    <p className="text-primary font-medium">+91-8830101938</p>
-                  </div>
-                </a>
-
-                <a 
-                  href="mailto:apengineer83@gmail.com"
-                  className="flex items-start space-x-4 p-4 bg-white rounded-lg hover:shadow-md transition-all group cursor-pointer"
-                >
-                  <div className="bg-secondary/10 p-3 rounded-lg group-hover:bg-secondary/20 transition-colors">
-                    <Mail className="h-5 w-5 text-secondary" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-sm text-muted-foreground mb-1">
-                      Email Us
-                    </p>
-                    <p className="text-primary font-medium break-all">
-                      apengineer83@gmail.com
-                    </p>
-                  </div>
-                </a>
-
-                <div className="flex items-start space-x-4 p-4 bg-white rounded-lg">
-                  <div className="bg-primary/10 p-3 rounded-lg">
-                    <MessageCircle className="h-5 w-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-sm text-muted-foreground mb-1">
-                      Response Time
-                    </p>
-                    <p className="text-primary font-medium">
-                      Within 24 hours
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-6 p-4 bg-accent/10 rounded-lg border border-accent/20">
-                <p className="text-sm text-center font-medium text-accent">
-                  🌍 Export inquiries welcome - Worldwide shipping available
-                </p>
-              </div>
-            </div>
+            </Card>
           </div>
-        </Card>
-      </div>
-    </section>
+        </section>
         <Footer />
 
         <style jsx>{`

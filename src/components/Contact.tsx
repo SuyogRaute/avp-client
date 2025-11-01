@@ -163,7 +163,7 @@ const Contact = () => {
                 </p>
                 <Button
                   variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-primary"
+                  className="border-white text-black hover:bg-white hover:text-primary"
                 >
                   Learn More About Exports
                 </Button>
